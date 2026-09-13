@@ -2,6 +2,7 @@
 
 - [ ] 1.1 Ingest the lecture Markdown file from the project root and verify that all Swedish text sections and English `<!-- ... -->` directives are identified.
 - [ ] 1.2 Parse and validate all embedded English directives (`<!-- SLIDE: ... -->`, `<!-- LEFT -->`, `<!-- RIGHT -->`, `<!-- DIAGRAM: ... -->`, `<!-- PAUSE -->`), verifying each directive has a clear mapping.
+- [ ] 1.3 Parse metadata/metainstructions in beginning of file beginning with %. properties/instructions are in english followed by : and then comes the values in any language.
 
 ## 2. Presentation Setup & Slide Structure
 
