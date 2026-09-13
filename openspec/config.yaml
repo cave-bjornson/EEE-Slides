@@ -1,13 +1,15 @@
 schema: spec-driven
 
-# Project context (optional)
+# Project context
 # This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Environment:
+    Typst CLI path: C:\Users\bjorn\AppData\Local\Microsoft\WinGet\Links\typst.exe
+  Conventions:
+    Slide engine: Touying with simple theme
+    Diagrams & Drawings: Cetz (@preview/cetz:0.5.2) and Merman (@preview/merman:0.3.0)
+    Content language: Swedish (verbatim from markdown notes)
+    Directives: English HTML comments (<!-- ... -->)
 
 # Per-artifact rules (optional)
 # Add custom rules for specific artifacts.
