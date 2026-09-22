@@ -1,0 +1,4 @@
+# PDF output directory and compiled presentation artifacts
+output/*
+!output/.gitkeep
+*.pdf
