@@ -167,7 +167,7 @@ Det finns olika verktyg för att hantera services och vilka som finns beror på 
 == 4 Vanliga Services
 
 #block(inset: (bottom: 0.5em))[
-  #text(1.1em, fill: rgb("#0369a1"))[Och deras namn i linux]
+  #text(1.1em, fill: rgb("#0369a1"))[Och några implementationer i linux]
 ]
 
 / SSH (openssh): Ett protokoll för att ansluta sig säkert mot andra datorer.
