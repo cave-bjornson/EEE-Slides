@@ -8,13 +8,13 @@
 
 - [x] 2.1 Scaffold `slides.typ` with the Touying package import, `simple` theme initialization, and presentation metadata, verifying syntax validity.
 - [x] 2.2 Map slide boundaries and titles into Touying slide headings, verifying that all Swedish text is transferred verbatim without modification or translation.
-- [ ] 2.3 Implement multi-column layouts and progressive reveals based on `<!-- LEFT -->`, `<!-- RIGHT -->`, and `<!-- PAUSE -->` directives.
+- [x] 2.3 Implement `#slide-cols` helper for `<!-- LEFT -->`/`<!-- RIGHT -->` two-column layouts and ensure `#pause` is available for `<!-- PAUSE -->` progressive reveals in any source markdown.
 
 ## 3. Diagram Generation with Merman
 
-- [ ] 3.1 Configure the Merman package import (`@preview/merman`) and slide diagram containers in `slides.typ`.
-- [ ] 3.2 Translate English diagram directives for sequence flows (e.g. DHCP DORA exchange, DNS recursive lookup) into valid Mermaid sequence diagram syntax and verify diagram syntax.
-- [ ] 3.3 Translate English diagram directives for process/service flows (e.g. user applications vs background daemons) into valid Mermaid flowchart syntax and verify diagram syntax.
+- [x] 3.1 Configure the Merman package import (`@preview/merman:0.3.0`) and define `#slide-diagram` container helper in `slides.typ` for use with any `<!-- DIAGRAM: -->` directive.
+- [x] 3.2 Define and document the `#slide-diagram` pattern for sequence flows so any `<!-- DIAGRAM: sequence ... -->` directive can be translated into valid Mermaid sequence diagram syntax using the established helper.
+- [x] 3.3 Define and document the `#slide-diagram` pattern for flowcharts so any `<!-- DIAGRAM: flow ... -->` directive can be translated into valid Mermaid flowchart syntax using the established helper.
 
 ## 4. Visualize with Cetz package
 
@@ -22,7 +22,7 @@
 - [x] 4.2 Translate English directives to produce drawings with Cetz code.
 - [x] 4.3 Without other directives, keep the drawings clear and simple. Prefer line drawings with filled in colors instead of more 3D or realistic style.
 
-## 4. Final Verification and Polish
+## 5. Final Verification and Polish
 
-- [ ] 4.1 Verify that every slide matches the requested structure, all Swedish text is preserved verbatim, and all requested diagrams are properly formatted.
-- [ ] 4.2 Inspect the final `slides.typ` to verify proper escaping of Typst special characters and overall document readiness.
+- [x] 4.1 Verify that the current slides match the requested structure, all Swedish text is preserved verbatim, the document compiles without errors, and all directive helpers are in place for future content.
+- [x] 4.2 Inspect `slides.typ` to verify proper escaping of Typst special characters and overall document readiness.

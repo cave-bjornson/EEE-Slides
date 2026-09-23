@@ -1,8 +1,39 @@
+// ─── Packages ────────────────────────────────────────────────────────────────
 #import "@preview/touying:0.5.5": *
 #import themes.simple: *
-#import "@preview/merman:0.3.0": mermaid
-#import "@preview/cetz:0.5.2"
+#import "@preview/merman:0.3.0": mermaid   // <!-- DIAGRAM: ... --> directives
+#import "@preview/cetz:0.5.2"              // <!-- DRAWING: ... --> directives
 
+#show raw.where(block: false): box
+
+// ─── Directive helpers ────────────────────────────────────────────────────────
+// <!-- LEFT --> / <!-- RIGHT -->  →  #slide-cols[left content][right content]
+#let slide-cols(left, right, gutter: 1.5em, widths: (1fr, 1fr)) = {
+  grid(
+    columns: widths,
+    gutter: gutter,
+    left,
+    right,
+  )
+}
+
+// <!-- DIAGRAM: description -->  →  #slide-diagram(scale: 85%)[mermaid syntax]
+#let slide-diagram(content, scale: 85%) = {
+  align(center)[
+    #box(width: scale)[
+      #mermaid(content)
+    ]
+  ]
+}
+
+// <!-- PAUSE -->  →  #pause  (built-in Touying keyword, listed here for clarity)
+
+// ─── Presentation metadata ───────────────────────────────────────────────────
+// Update these values from the % metadata lines at the top of the source .md:
+//   % Title:    → title
+//   % Subtitle: → subtitle
+//   % Class:    → author
+//   % Date:     → date  (YYMMDD → YYYY-MM-DD)
 #show: simple-theme.with(
   aspect-ratio: "16-9",
   config-info(
@@ -119,6 +150,27 @@
 
 == Tjänster - Definition
 
-- Tjänster eller Services är applikationer som utför en specifik uppgift i bakgrunden utan input från användaren.
-- De kan startas och stoppas direkt av användaren men det normala är att använda någon form av övervakare.
+- Applikationer är program som en användare interagerar med direkt.
+- Tjänster eller Services är program som utför en specifik uppgift i bakgrunden utan input från användaren.
+- De kan startas och stoppas direkt av användaren men det normala är att använda någon form av hanteringsprogram.
 - Denna lektion kommer demonstrera ett urval vanliga bakgrundstjänster i en linuxmiljö. Det man lär sig går att ta med sig till Windows på lektionen imorgon.
+
+== Start och stopp
+
+I linux kallas bakgrundsprogram för "Daemons", därav den lilla röda demonen i illustrationen i början.
+
+Dessa startas med `systemctl start <tjänst>` och `systemctl stop <tjänst>`. Motsvarande i Windows är `Start-Service` och `Stop-Service`.
+
+Det finns olika verktyg för att hantera services och vilka som finns beror på Linux distrubution. I Ubuntu Server finns t.ex. 
+`service --status-all` för en enkel översikt på system som är igång.
+
+== 4 Vanliga Services
+
+#block(inset: (bottom: 0.5em))[
+  #text(1.1em, fill: rgb("#0369a1"))[Och deras namn i linux]
+]
+
+/ SSH (openssh): Ett protokoll för att ansluta sig säkert mot andra datorer.
+/ DHCP (isc-kea, dnsmasq): DHCP-servern har en pool med IP-adresser och lånar ut adresser till DHCP-klienter.
+/ DNS (named, dnsmasq): Översätter domän namn till IP adresser.
+/ Fileshares (samba, nfs, sftp): Tillgängliggör filer lagrade på servern via nätverksprotokoll.
